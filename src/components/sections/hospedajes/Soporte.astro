@@ -1,0 +1,24 @@
+---
+import Seccion from '../../ui/Seccion.astro';
+import Contenedor from '../../ui/Contenedor.astro';
+import { site } from '../../../config/site';
+---
+
+<Seccion id="soporte" fondo="superficie">
+  <Contenedor class="max-w-prose">
+    <h2 class="text-2xl md:text-3xl font-bold text-[var(--color-marca)] mb-4">
+      Soporte local y presencial
+    </h2>
+    <div class="space-y-4 text-base text-[var(--color-tinta)] leading-relaxed">
+      <p>
+        Estamos basados en Pucallpa. Eso significa que si tienes un problema crítico con la plataforma, podemos atenderlo directamente sin esperar respuestas automatizadas de otros países.
+      </p>
+      <p>
+        Atendemos de <strong>{site.horarioAtencion}</strong> vía WhatsApp para consultas operativas, dudas de tu personal o capacitaciones adicionales.
+      </p>
+      <div class="bg-white p-5 rounded-xl border border-[var(--color-borde)] text-sm text-[var(--color-tinta-suave)] mt-4">
+        <strong>Compromiso claro:</strong> Si ocurre un inconveniente que impida registrar un turno, te guiamos de inmediato para continuar operando en contingencia mientras lo resolvemos.
+      </div>
+    </div>
+  </Contenedor>
+</Seccion>

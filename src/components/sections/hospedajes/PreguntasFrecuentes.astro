@@ -1,0 +1,37 @@
+---
+import { getCollection, render } from 'astro:content';
+import Seccion from '../../ui/Seccion.astro';
+import Contenedor from '../../ui/Contenedor.astro';
+
+const faqsRaw = await getCollection('faq');
+const faqsPublicadas = faqsRaw
+  .filter((f) => f.data.publicado && f.data.producto === 'hospedajes')
+  .sort((a, b) => a.data.orden - b.data.orden);
+---
+
+<Seccion id="preguntas" fondo="blanco">
+  <Contenedor class="max-w-prose">
+    <h2 class="text-2xl md:text-3xl font-bold text-[var(--color-marca)] mb-6">
+      Preguntas frecuentes
+    </h2>
+
+    <div class="space-y-4">
+      {faqsPublicadas.map(async (faq) => {
+        const { Content } = await render(faq);
+        return (
+          <details class="group bg-[var(--color-superficie)] p-5 rounded-2xl border border-[var(--color-borde)] [&_summary::-webkit-details-marker]:hidden">
+            <summary class="flex items-center justify-between font-bold text-base md:text-lg text-[var(--color-tinta)] cursor-pointer list-none focus-visible:outline focus-visible:outline-2 focus-visible:outline-[var(--color-marca)] rounded p-1">
+              <span>{faq.data.pregunta}</span>
+              <span class="ml-4 transition-transform duration-200 group-open:rotate-180 text-[var(--color-marca)] font-bold">
+                ↓
+              </span>
+            </summary>
+            <div class="mt-4 pt-3 border-t border-[var(--color-borde)] text-base text-[var(--color-tinta-suave)] leading-relaxed">
+              <Content />
+            </div>
+          </details>
+        );
+      })}
+    </div>
+  </Contenedor>
+</Seccion>

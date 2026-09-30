@@ -1,0 +1,31 @@
+---
+import Seccion from '../../ui/Seccion.astro';
+import Contenedor from '../../ui/Contenedor.astro';
+import { caracteristicasHospedajes } from '../../../data/hospedajes/caracteristicas';
+---
+
+<Seccion id="caracteristicas" fondo="superficie">
+  <Contenedor>
+    <div class="max-w-3xl mb-10">
+      <h2 class="text-2xl md:text-3xl font-bold text-[var(--color-marca)] mb-3">
+        Hecho para cómo trabajas
+      </h2>
+      <p class="text-base text-[var(--color-tinta-suave)]">
+        Sin funciones complicadas que nadie usa. Cada módulo responde a la operación real de un hospedaje.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+      {caracteristicasHospedajes.map((item) => (
+        <div class="space-y-2">
+          <h3 class="text-xl font-bold text-[var(--color-tinta)]">
+            {item.titulo}
+          </h3>
+          <p class="text-base text-[var(--color-tinta-suave)] leading-relaxed">
+            {item.descripcion}
+          </p>
+        </div>
+      ))}
+    </div>
+  </Contenedor>
+</Seccion>

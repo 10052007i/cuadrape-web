@@ -1,0 +1,17 @@
+---
+import { getCollection, render } from 'astro:content';
+import LegalLayout from '../layouts/LegalLayout.astro';
+
+const legalCollection = await getCollection('legal');
+const doc = legalCollection.find((item) => item.id.includes('terminos'));
+
+if (!doc) {
+  throw new Error('No se encontró el documento de términos');
+}
+
+const { Content } = await render(doc);
+---
+
+<LegalLayout titulo={doc.data.titulo} actualizado={doc.data.actualizado}>
+  <Content />
+</LegalLayout>

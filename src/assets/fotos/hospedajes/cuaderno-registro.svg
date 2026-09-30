@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 350" fill="none">
+  <rect width="500" height="350" rx="12" fill="#FAF6EE" stroke="#D3DCE5" stroke-width="2"/>
+  <line x1="60" y1="0" x2="60" y2="350" stroke="#F87171" stroke-width="2"/>
+  <line x1="0" y1="50" x2="500" y2="50" stroke="#93C5FD" stroke-width="1"/>
+  <line x1="0" y1="100" x2="500" y2="100" stroke="#93C5FD" stroke-width="1"/>
+  <line x1="0" y1="150" x2="500" y2="150" stroke="#93C5FD" stroke-width="1"/>
+  <line x1="0" y1="200" x2="500" y2="200" stroke="#93C5FD" stroke-width="1"/>
+  <line x1="0" y1="250" x2="500" y2="250" stroke="#93C5FD" stroke-width="1"/>
+  <text x="80" y="85" font-family="serif" font-style="italic" font-size="20" fill="#1E3A8A">Cuaderno tradicional de registro manual</text>
+  <text x="80" y="135" font-family="serif" font-style="italic" font-size="16" fill="#4B5563">14:00 - Hab 05 - 4 horas - S/ 40.00 (Pagado)</text>
+  <text x="80" y="185" font-family="serif" font-style="italic" font-size="16" fill="#4B5563">16:15 - ¿Se desocupó? (no registrado)</text>
+</svg>

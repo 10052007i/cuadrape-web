@@ -1,0 +1,90 @@
+---
+import Seccion from '../../ui/Seccion.astro';
+import Contenedor from '../../ui/Contenedor.astro';
+import BotonWhatsApp from '../../ui/BotonWhatsApp.astro';
+import { precios } from '../../../config/precios';
+import { incluyeHospedajes } from '../../../data/hospedajes/incluye';
+import { soles, topeDiario } from '../../../lib/formato';
+
+const precioMensual = soles(precios.hospedajes.mensual);
+const precioImplementacion = soles(precios.hospedajes.implementacion);
+const costoDiarioTope = topeDiario(precios.hospedajes.mensual);
+---
+
+<Seccion id="precio" fondo="superficie" class="py-16 md:py-24">
+  <Contenedor>
+    <div class="text-center max-w-2xl mx-auto mb-12 space-y-3">
+      <span class="inline-block bg-[var(--color-marca)] text-white text-xs font-bold px-3.5 py-1 rounded-full shadow-2xs">
+        Transparencia Total
+      </span>
+      <h2 class="text-3xl md:text-4xl font-extrabold text-[var(--color-marca)]">
+        Un solo plan, sin sorpresas
+      </h2>
+      <p class="text-base text-[var(--color-tinta-suave)]">
+        Sin planes recortados ni costos ocultos por usuario o función extra.
+      </p>
+    </div>
+
+    <!-- Tarjeta de Precio Destacada -->
+    <div class="relative bg-white rounded-3xl p-6 md:p-12 border-2 border-[var(--color-marca)] shadow-xl max-w-4xl mx-auto overflow-hidden">
+      <!-- Badge Recomendado -->
+      <div class="absolute top-0 right-0 bg-[var(--color-acento)] text-[var(--color-tinta)] text-xs font-extrabold px-5 py-1.5 rounded-bl-2xl uppercase tracking-wider">
+        Plan Único Completo
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start pt-4">
+        <!-- Columna Izquierda: Tarifa & Acción -->
+        <div class="lg:col-span-5 space-y-6">
+          <div>
+            <span class="text-xs font-bold uppercase tracking-wider text-[var(--color-tinta-suave)]">
+              Mensualidad Única
+            </span>
+            <div class="flex items-baseline gap-2 mt-2">
+              <span class="text-5xl md:text-6xl font-extrabold text-[var(--color-marca)] tabular-nums tracking-tight">
+                {precioMensual}
+              </span>
+              <span class="text-base font-semibold text-[var(--color-tinta-suave)]">/ mes</span>
+            </div>
+            <div class="inline-flex items-center gap-2 bg-green-50 text-green-800 text-xs font-bold px-3 py-1 rounded-lg border border-green-200 mt-2">
+              <span>✓ IGV incluido</span>
+              <span>·</span>
+              <span>Sin permanencia</span>
+            </div>
+            <p class="text-xs text-[var(--color-tinta-suave)] mt-2 tabular-nums font-semibold">
+              Menos de S/{costoDiarioTope} al día
+            </p>
+          </div>
+
+          <div class="bg-[var(--color-superficie)] p-4 rounded-2xl border border-[var(--color-borde)] space-y-1">
+            <p class="text-sm font-bold text-[var(--color-tinta)]">
+              Implementación única: {precioImplementacion} (IGV incluido)
+            </p>
+            <p class="text-xs text-[var(--color-tinta-suave)] leading-relaxed">
+              Carga de habitaciones y tarifas, visita presencial, capacitación por rol y acompañamiento en tu primer turno.
+            </p>
+          </div>
+
+          <BotonWhatsApp texto="Pide una demostración" class="w-full text-base py-3.5 shadow-md" />
+        </div>
+
+        <!-- Columna Derecha: Beneficios incluidos -->
+        <div class="lg:col-span-7 space-y-5 lg:border-l lg:border-slate-100 lg:pl-8">
+          <h3 class="text-lg font-bold text-[var(--color-tinta)]">
+            Lo que incluye tu mensualidad:
+          </h3>
+          <ul class="space-y-3.5">
+            {incluyeHospedajes.map((item) => (
+              <li class="flex items-start gap-3 text-sm">
+                <span class="w-5 h-5 rounded-full bg-[var(--color-marca)] text-white text-xs font-bold flex items-center justify-center shrink-0 mt-0.5 select-none">✓</span>
+                <div>
+                  <strong class="text-[var(--color-tinta)] block text-base">{item.titulo}</strong>
+                  <span class="text-[var(--color-tinta-suave)]">{item.descripcion}</span>
+                </div>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
+    </div>
+  </Contenedor>
+</Seccion>

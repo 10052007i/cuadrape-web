@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1412 852" role="img" aria-labelledby="t"><title id="t">Cuadrape Hotel</title>
+  <g id="mark">
+    <rect x="488" y="83" width="206" height="206" fill="#E7AC2A"/>
+    <rect x="714" y="83" width="206" height="206" fill="#033F70"/>
+    <rect x="488" y="309" width="206" height="206" fill="#033F70"/>
+    <rect x="714" y="309" width="206" height="206" fill="#E7AC2A"/>
+    <rect x="575" y="178" width="258" height="242" fill="none" stroke="var(--paper,#fff)" stroke-width="21"/>
+    <rect x="694" y="188.5" width="128.5" height="15.5" fill="#033F70"/>
+    <rect x="694" y="398" width="20" height="11.5" fill="#033F70"/>
+    <rect x="585.5" y="289" width="19.5" height="20" fill="#E7AC2A"/>
+    <rect x="803" y="289" width="19.5" height="20" fill="#E7AC2A"/>
+    <path d="M714 248L768 204L822.5 248V270L768 226L714 270Z" fill="var(--paper,#fff)"/>
+    <rect x="714" y="353" width="22" height="14" fill="var(--paper,#fff)"/>
+    <rect x="714" y="377" width="14" height="14" fill="var(--paper,#fff)"/>
+  </g>
+  <g id="wordmark" fill="none" stroke="#033F70" stroke-width="28" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M231.2 578.3A48.5 54 0 1 0 231.2 641.7"/><path d="M292 556V617A47 47 0 0 0 386 617V556"/><path d="M428 664L486 556L544 664M458 636H514"/><path d="M597 556H642A54 54 0 0 1 642 664H597Z"/><path d="M749 664V556H804A32.5 32.5 0 0 1 804 621H749M803 624L837 664"/><path d="M884 664L942 556L1000 664M914 636H970"/><path d="M1049 664V556H1103A32.5 32.5 0 0 1 1103 621H1049"/><path d="M1268 556H1189V664H1268M1189 610H1262"/>
+  </g>
+  <g id="sub" fill="none" stroke="#E7AC2A" stroke-width="14" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M532 710V762M575 710V762M532 736H575"/><path d="M611 736A25 26 0 1 0 661 736A25 26 0 1 0 611 736Z"/><path d="M697 710H737M717 710V762"/><path d="M812 710H773V762H812M773 736H806"/><path d="M843 710V762H877"/>
+  </g>
+</svg>

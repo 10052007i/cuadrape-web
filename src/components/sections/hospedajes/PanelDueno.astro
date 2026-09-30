@@ -1,0 +1,46 @@
+---
+import Seccion from '../../ui/Seccion.astro';
+import Contenedor from '../../ui/Contenedor.astro';
+import Imagen from '../../ui/Imagen.astro';
+import { senalesHospedajes } from '../../../data/hospedajes/senales';
+---
+
+<Seccion id="panel-dueno" fondo="superficie">
+  <Contenedor>
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+      <!-- Columna Captura -->
+      <div class="lg:col-span-6">
+        <Imagen
+          src="/src/assets/capturas/hospedajes/panel-alertas.svg"
+          alt="Panel del dueño mostrando señales de control y alertas del día"
+        />
+      </div>
+
+      <!-- Columna Señales -->
+      <div class="lg:col-span-6 space-y-6">
+        <h2 class="text-2xl md:text-3xl font-bold text-[var(--color-marca)]">
+          El panel del dueño en tu celular
+        </h2>
+        <p class="text-base text-[var(--color-tinta-suave)]">
+          Revisa lo que sucede en tu hospedaje a cualquier hora y desde donde estés, sin interrumpir el trabajo de recepción.
+        </p>
+
+        <div class="space-y-4">
+          {senalesHospedajes.map((senal) => (
+            <div class="bg-white p-4 rounded-xl border border-[var(--color-borde)]">
+              <div class="flex items-center justify-between mb-1">
+                <h3 class="text-base font-bold text-[var(--color-tinta)]">{senal.titulo}</h3>
+                {senal.badge && (
+                  <span class="text-xs bg-amber-100 text-amber-800 font-bold px-2 py-0.5 rounded">
+                    {senal.badge}
+                  </span>
+                )}
+              </div>
+              <p class="text-sm text-[var(--color-tinta-suave)]">{senal.descripcion}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </Contenedor>
+</Seccion>

@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" fill="none">
+  <rect width="1200" height="630" fill="#023F72"/>
+  <rect x="80" y="80" width="80" height="80" rx="20" fill="#E8AF2F"/>
+  <text x="190" y="140" font-family="sans-serif" font-weight="800" font-size="56" fill="#FFFFFF">Cuadrape</text>
+  <text x="190" y="190" font-family="sans-serif" font-weight="600" font-size="32" fill="#E8AF2F">para hospedajes</text>
+  <text x="80" y="320" font-family="sans-serif" font-weight="800" font-size="52" fill="#FFFFFF">Que cada turno cuadre</text>
+  <text x="80" y="390" font-family="sans-serif" font-size="28" fill="#D3DCE5">Control de caja, liberaciones anticipadas y turnos desde tu celular en Pucallpa</text>
+  <rect x="80" y="460" width="340" height="70" rx="12" fill="#25D366"/>
+  <text x="120" y="505" font-family="sans-serif" font-weight="700" font-size="24" fill="#FFFFFF">Pide una demostración</text>
+</svg>

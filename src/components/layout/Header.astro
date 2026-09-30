@@ -1,0 +1,40 @@
+---
+import Contenedor from '../ui/Contenedor.astro';
+import BotonWhatsApp from '../ui/BotonWhatsApp.astro';
+import { productos } from '../../config/productos';
+
+const productoActual = productos.find((p) => p.slug === 'hospedajes') || productos[0];
+---
+
+<!-- Header Estándar de la Guía Visual con Logo Prominente Agrandado -->
+<header class="w-full bg-[var(--color-fondo)] border-b border-[var(--color-borde)] sticky top-0 z-40 shadow-2xs">
+  <Contenedor class="flex items-center justify-between h-[76px] md:h-[96px]">
+    <!-- Logo Oficial Cuadrape Hotel Prominente Agrandado + Divisor Vertical + para hospedajes -->
+    <a href="/" class="flex items-center group focus-visible:outline focus-visible:outline-2 focus-visible:outline-[var(--color-marca)] rounded py-1">
+      <img src="/src/assets/marca/cuadrape-hotel-logo.svg" alt="Cuadrape" class="h-[48px] md:h-[72px] w-auto block transition-transform group-hover:scale-105" />
+      <div class="w-[1px] h-[28px] md:h-[38px] bg-[var(--color-borde)] mx-3 md:mx-6"></div>
+      <span class="text-[14px] md:text-[17px] font-semibold text-[var(--color-tinta-suave)] select-none whitespace-nowrap">
+        {productoActual.etiqueta}
+      </span>
+    </a>
+
+    <!-- Acciones Derecha (Ingresar + Botón WhatsApp Verde) -->
+    <nav class="flex items-center gap-3 md:gap-6" aria-label="Navegación principal">
+      <a
+        href={productoActual.ingreso}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="text-[15px] md:text-[17px] font-semibold text-[var(--color-tinta)] hover:text-[var(--color-marca)] transition-colors px-2.5 py-3 rounded focus-visible:outline focus-visible:outline-2 focus-visible:outline-[var(--color-marca)]"
+      >
+        Ingresar
+      </a>
+
+      <div class="hidden md:block">
+        <BotonWhatsApp
+          anchoCompleto={false}
+          class="h-[52px] px-6 text-[17px] rounded-[6px]"
+        />
+      </div>
+    </nav>
+  </Contenedor>
+</header>

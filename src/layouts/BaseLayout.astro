@@ -1,0 +1,114 @@
+---
+import Header from '../components/layout/Header.astro';
+import Footer from '../components/layout/Footer.astro';
+import WhatsAppFijo from '../components/layout/WhatsAppFijo.astro';
+import { site } from '../config/site';
+import { precios } from '../config/precios';
+import { urlAbsoluta } from '../lib/seo';
+import '../styles/global.css';
+
+interface Props {
+  titulo?: string;
+  descripcion?: string;
+  imagenOg?: string;
+  ruta?: string;
+}
+
+const {
+  titulo = 'Cuadrape para Hospedajes | Que cada turno cuadre',
+  descripcion = 'Sistema para hospedajes por horas en Pucallpa. Control de caja, liberaciones anticipadas y arqueo de turnos desde tu celular.',
+  imagenOg = '/og/hospedajes.svg',
+  ruta = '/',
+} = Astro.props;
+
+const urlCanonical = urlAbsoluta(ruta);
+const urlImagenOg = urlAbsoluta(imagenOg);
+
+const schemaOrg = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'Organization',
+      '@id': `${site.url}/#organization`,
+      name: site.marca,
+      url: site.url,
+      email: site.correo,
+      address: {
+        '@type': 'PostalAddress',
+        addressLocality: 'Pucallpa',
+        addressRegion: 'Ucayali',
+        addressCountry: 'PE',
+      },
+    },
+    {
+      '@type': 'Product',
+      '@id': `${site.url}/#product`,
+      name: 'Cuadrape para Hospedajes',
+      description: descripcion,
+      brand: {
+        '@type': 'Brand',
+        name: site.marca,
+      },
+      offers: {
+        '@type': 'Offer',
+        price: precios.hospedajes.mensual,
+        priceCurrency: 'PEN',
+        availability: 'https://schema.org/InStock',
+        url: urlCanonical,
+      },
+    },
+  ],
+};
+
+const analyticsToken = import.meta.env.PUBLIC_ANALYTICS_TOKEN;
+const isProd = import.meta.env.PROD;
+---
+
+<!doctype html>
+<html lang="es-PE">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="canonical" href={urlCanonical} />
+
+    <!-- SEO Meta Tags -->
+    <title>{titulo}</title>
+    <meta name="description" content={descripcion} />
+
+    <!-- Open Graph / WhatsApp / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="es_PE" />
+    <meta property="og:url" content={urlCanonical} />
+    <meta property="og:title" content={titulo} />
+    <meta property="og:description" content={descripcion} />
+    <meta property="og:image" content={urlImagenOg} />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={titulo} />
+    <meta name="twitter:description" content={descripcion} />
+    <meta name="twitter:image" content={urlImagenOg} />
+
+    <!-- Datos Estructurados JSON-LD -->
+    <script type="application/ld+json" set:html={JSON.stringify(schemaOrg)} />
+
+    <!-- Analítica opcional sin cookies -->
+    {isProd && analyticsToken && (
+      <script
+        defer
+        data-domain="cuadrape.com"
+        src="https://plausible.io/js/script.js"
+        data-api="/api/event"
+      />
+    )}
+  </head>
+  <body class="min-h-screen flex flex-col bg-[var(--color-fondo)] text-[var(--color-tinta)] antialiased">
+    <Header />
+    <main class="flex-grow">
+      <slot />
+    </main>
+    <Footer />
+    <WhatsAppFijo />
+  </body>
+</html>

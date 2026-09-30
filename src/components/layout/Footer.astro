@@ -1,0 +1,50 @@
+---
+import Contenedor from '../ui/Contenedor.astro';
+import { site } from '../../config/site';
+---
+
+<footer class="bg-[var(--color-tinta)] text-white py-12 border-t border-[var(--color-tinta-suave)]">
+  <Contenedor>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-8">
+      <!-- Columna 1: Marca & Titular -->
+      <div>
+        <h3 class="text-xl font-bold mb-3 text-white">{site.marca}</h3>
+        <p class="text-sm text-slate-300 mb-2">
+          {site.titular.nombre}
+        </p>
+        {site.titular.ruc && (
+          <p class="text-sm text-slate-400 mb-2">RUC: {site.titular.ruc}</p>
+        )}
+        <p class="text-sm text-slate-400">{site.ciudad}</p>
+      </div>
+
+      <!-- Columna 2: Atención y Contacto -->
+      <div>
+        <h4 class="text-base font-semibold mb-3 text-[var(--color-acento)]">Atención Comercial</h4>
+        <p class="text-sm text-slate-300 mb-1">{site.horarioAtencion}</p>
+        <p class="text-sm text-slate-300">{site.correo}</p>
+      </div>
+
+      <!-- Columna 3: Enlaces Legales -->
+      <div>
+        <h4 class="text-base font-semibold mb-3 text-[var(--color-acento)]">Enlaces Legales</h4>
+        <ul class="space-y-2 text-sm">
+          <li>
+            <a href="/privacidad" class="text-slate-300 hover:text-white transition-colors underline">
+              Política de Privacidad
+            </a>
+          </li>
+          <li>
+            <a href="/terminos" class="text-slate-300 hover:text-white transition-colors underline">
+              Términos y Condiciones
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="pt-6 border-t border-slate-700/60 text-center md:text-left text-xs text-slate-400">
+      <p>© {new Date().getFullYear()} {site.marca}. Todos los derechos reservados.</p>
+    </div>
+  </Contenedor>
+</footer>

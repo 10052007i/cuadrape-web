@@ -1,0 +1,23 @@
+---
+import Seccion from '../../ui/Seccion.astro';
+import Contenedor from '../../ui/Contenedor.astro';
+import BotonWhatsApp from '../../ui/BotonWhatsApp.astro';
+import { precios } from '../../../config/precios';
+import { soles } from '../../../lib/formato';
+
+const precioMensual = soles(precios.hospedajes.mensual);
+---
+
+<Seccion id="cierre" fondo="marca" class="py-16 md:py-24 text-center">
+  <Contenedor class="max-w-2xl">
+    <h2 class="text-3xl md:text-4xl font-extrabold text-white mb-4">
+      Que cada turno vuelva a cuadrar
+    </h2>
+    <p class="text-base md:text-lg text-slate-200 mb-8 leading-relaxed">
+      Toma el control de las liberaciones, arqueos y métodos de pago de tu hospedaje por {precioMensual} al mes.
+    </p>
+    <div class="flex justify-center">
+      <BotonWhatsApp texto="Pide una demostración" class="text-lg py-4 px-8" />
+    </div>
+  </Contenedor>
+</Seccion>

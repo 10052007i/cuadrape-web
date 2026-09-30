@@ -1,0 +1,112 @@
+---
+import Seccion from '../../ui/Seccion.astro';
+import Contenedor from '../../ui/Contenedor.astro';
+import Imagen from '../../ui/Imagen.astro';
+---
+
+<Seccion id="problema" fondo="superficie" class="py-[64px] md:py-[112px]">
+  <Contenedor>
+    <!-- Titular Principal Exacto -->
+    <h2 class="m-0 max-w-[760px] text-[26px] md:text-[36px] leading-[1.15] md:leading-[1.1] font-bold text-[var(--color-tinta)] [font-stretch:87.5%]">
+      Una habitación, dos cobros, una sola entrada a caja.
+    </h2>
+
+    <!-- Timeline 3 Momentos (Horizontal en desktop / Vertical en celular) -->
+    <div class="mt-9 md:mt-[64px] flex flex-col lg:grid lg:grid-cols-3 gap-0">
+      <!-- Momento 1: 2:00 p.m. -->
+      <div class="flex flex-row lg:flex-col pr-0 lg:pr-10">
+        <!-- Indicador Celular (Vertical) -->
+        <div class="flex lg:hidden flex-col items-center w-[14px] shrink-0">
+          <div class="w-[14px] h-[14px] bg-[var(--color-marca)] shrink-0 mt-[3px]"></div>
+          <div class="w-[2px] flex-grow bg-[#B7C4D1]"></div>
+        </div>
+        <!-- Indicador Desktop (Horizontal) -->
+        <div class="hidden lg:flex items-center w-full">
+          <div class="w-[16px] h-[16px] bg-[var(--color-marca)] shrink-0"></div>
+          <div class="h-[2px] flex-grow bg-[#B7C4D1]"></div>
+        </div>
+
+        <div class="pb-7 lg:pb-0 pl-4 lg:pl-0 flex flex-col">
+          <span class="mt-0 lg:mt-[24px] text-[14px] md:text-[15px] font-bold text-[var(--color-marca)] tabular-nums">
+            2:00 p.m.
+          </span>
+          <p class="mt-1.5 md:mt-2 m-0 text-[17px] md:text-[19px] leading-[1.5] text-[var(--color-tinta)]">
+            Una pareja alquila la 5 por 4 horas.
+          </p>
+        </div>
+      </div>
+
+      <!-- Momento 2: 3:00 p.m. -->
+      <div class="flex flex-row lg:flex-col pr-0 lg:pr-10">
+        <!-- Indicador Celular -->
+        <div class="flex lg:hidden flex-col items-center w-[14px] shrink-0">
+          <div class="w-[14px] h-[14px] bg-[var(--color-marca)] shrink-0 mt-[3px]"></div>
+          <div class="w-[2px] flex-grow bg-[#B7C4D1]"></div>
+        </div>
+        <!-- Indicador Desktop -->
+        <div class="hidden lg:flex items-center w-full">
+          <div class="w-[16px] h-[16px] bg-[var(--color-marca)] shrink-0"></div>
+          <div class="h-[2px] flex-grow bg-[#B7C4D1]"></div>
+        </div>
+
+        <div class="pb-7 lg:pb-0 pl-4 lg:pl-0 flex flex-col">
+          <span class="mt-0 lg:mt-[24px] text-[14px] md:text-[15px] font-bold text-[var(--color-marca)] tabular-nums">
+            3:00 p.m.
+          </span>
+          <p class="mt-1.5 md:mt-2 m-0 text-[17px] md:text-[19px] leading-[1.5] text-[var(--color-tinta)]">
+            Se van antes. A la habitación le quedan 3 horas pagadas.
+          </p>
+        </div>
+      </div>
+
+      <!-- Momento 3: 3:30 p.m. (Cuadrado Acento Dorado) -->
+      <div class="flex flex-row lg:flex-col">
+        <!-- Indicador Celular -->
+        <div class="flex lg:hidden flex-col items-center w-[14px] shrink-0">
+          <div class="w-[14px] h-[14px] bg-[var(--color-acento)] shrink-0 mt-[3px]"></div>
+        </div>
+        <!-- Indicador Desktop -->
+        <div class="hidden lg:flex items-center w-full">
+          <div class="w-[16px] h-[16px] bg-[var(--color-acento)] shrink-0"></div>
+        </div>
+
+        <div class="pl-4 lg:pl-0 flex flex-col">
+          <span class="mt-0 lg:mt-[24px] text-[14px] md:text-[15px] font-bold text-[var(--color-marca)] tabular-nums">
+            3:30 p.m.
+          </span>
+          <p class="mt-1.5 md:mt-2 m-0 text-[17px] md:text-[19px] leading-[1.5] text-[var(--color-tinta)]">
+            Llega otra pareja y paga en efectivo. En el cuaderno no aparece.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Párrafo Central y Foto del Cuaderno -->
+    <div class="mt-11 lg:mt-[88px] flex flex-col lg:flex-row gap-6 lg:gap-[80px] lg:items-center">
+      <div class="w-full lg:w-[460px] shrink-0 flex flex-col">
+        <p class="m-0 text-[21px] md:text-[26px] leading-[1.35] font-semibold text-[var(--color-tinta)]">
+          No hace falta que nadie mienta: basta con no anotar. Y desde fuera, es imposible de ver.
+        </p>
+
+        <!-- Párrafo secundario en desktop -->
+        <p class="hidden lg:block mt-6 m-0 text-[17px] leading-[1.6] text-[var(--color-tinta-suave)]">
+          También pasa con cobros a otra tarifa, efectivo que no cuadra en el cambio de turno, días sueltos en estadías largas y consumos del friobar que no se anotan.
+        </p>
+      </div>
+
+      <!-- Contenedor Foto Cuaderno -->
+      <div class="w-full flex-grow h-[260px] md:h-[400px] border-[1.5px] border-dashed border-[#B7C4D1] rounded-[8px] bg-white p-6 flex flex-col items-center justify-center text-center overflow-hidden">
+        <Imagen
+          src="/src/assets/fotos/hospedajes/cuaderno-registro.svg"
+          alt="Foto de la hoja de cuaderno escrita a mano"
+          class="w-full h-full object-contain"
+        />
+      </div>
+
+      <!-- Párrafo secundario en celular -->
+      <p class="block lg:hidden mt-2 m-0 text-[15px] leading-[1.6] text-[var(--color-tinta-suave)]">
+        También pasa con cobros a otra tarifa, efectivo que no cuadra en el cambio de turno, días sueltos en estadías largas y consumos del friobar que no se anotan.
+      </p>
+    </div>
+  </Contenedor>
+</Seccion>

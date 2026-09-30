@@ -1,0 +1,52 @@
+---
+import Seccion from '../../ui/Seccion.astro';
+import Contenedor from '../../ui/Contenedor.astro';
+import BotonWhatsApp from '../../ui/BotonWhatsApp.astro';
+import { precios } from '../../../config/precios';
+import { soles } from '../../../lib/formato';
+
+const precioMensual = soles(precios.hospedajes.mensual);
+---
+
+<Seccion id="portada" fondo="blanco" class="py-8 md:py-24 lg:pb-28">
+  <Contenedor>
+    <div class="flex flex-col lg:flex-row gap-10 lg:gap-[120px] items-start lg:items-center">
+      <!-- Columna Texto (Izquierda en desktop) -->
+      <div class="flex-grow flex flex-col pt-0 lg:pt-14 max-w-full lg:max-w-[580px]">
+        <!-- Titular Principal Exacto -->
+        <h1 class="m-0 text-[34px] md:text-[56px] leading-[1.05] font-extrabold text-[var(--color-tinta)] tracking-[-0.01em] [font-stretch:87.5%]">
+          Que cada turno cuadre.
+        </h1>
+
+        <!-- Subtítulo Exacto -->
+        <p class="mt-4 md:mt-6 m-0 max-w-[540px] text-[17px] md:text-[19px] leading-[1.6] text-[var(--color-tinta-suave)]">
+          Sistema de control para hospedajes que alquilan por horas. Cada ingreso, cobro y salida queda registrado a nombre de quien lo hizo, y tú lo ves desde tu celular.
+        </p>
+
+        <!-- CTA Verde WhatsApp & Precio Exacto -->
+        <div class="mt-7 md:mt-9 flex flex-col items-start w-full md:w-auto">
+          <BotonWhatsApp
+            texto="Pide una demostración"
+            anchoCompleto={true}
+            class="h-[52px] md:h-[56px] px-6 text-[17px] rounded-[6px] w-full md:w-auto"
+          />
+          <p class="mt-3 md:mt-4 text-[14px] md:text-[15px] leading-[1.5] text-[var(--color-tinta-suave)] tabular-nums w-full text-center md:text-left">
+            <strong class="text-[var(--color-tinta)] font-bold">{precioMensual} al mes</strong>, IGV incluido. Sin permanencia.
+          </p>
+        </div>
+      </div>
+
+      <!-- Columna Cuadro de Captura Limpio (360x640 / 260x462 según guía visual) -->
+      <div class="w-full lg:w-auto flex justify-center mt-6 lg:mt-0">
+        <div class="w-[260px] h-[462px] md:w-[360px] md:h-[640px] shrink-0 border-[1.5px] border-dashed border-[#B7C4D1] rounded-[20px] md:rounded-[24px] bg-[var(--color-superficie)] p-6 md:p-8 flex flex-col items-center justify-center text-center box-border relative overflow-hidden">
+          <span class="text-[14px] md:text-[15px] font-semibold text-[var(--color-tinta-suave)]">
+            Captura real del tablero
+          </span>
+          <span class="text-[12px] md:text-[13px] leading-[1.5] text-[var(--color-tinta-suave)] mt-2">
+            Celular, empresa de demostración.<br />Proporción 9:16, sin marco de teléfono.
+          </span>
+        </div>
+      </div>
+    </div>
+  </Contenedor>
+</Seccion>

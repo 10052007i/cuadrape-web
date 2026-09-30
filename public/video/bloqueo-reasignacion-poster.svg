@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 400" fill="none">
+  <rect width="600" height="400" rx="16" fill="#0E2439"/>
+  <circle cx="300" cy="200" r="40" fill="#E8AF2F" opacity="0.9"/>
+  <polygon points="290,185 320,200 290,215" fill="#023F72"/>
+  <text x="180" y="300" font-family="sans-serif" font-weight="600" font-size="20" fill="#FFFFFF">Demostración: Bloqueo de Reasignación</text>
+</svg>

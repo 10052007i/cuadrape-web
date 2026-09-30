@@ -1,0 +1,66 @@
+---
+import Seccion from '../../ui/Seccion.astro';
+import Contenedor from '../../ui/Contenedor.astro';
+import Imagen from '../../ui/Imagen.astro';
+---
+
+<Seccion id="como-funciona" fondo="blanco" class="py-[64px] md:py-[112px]">
+  <Contenedor>
+    <div class="flex flex-col lg:flex-row gap-8 lg:gap-[120px] items-center">
+      <!-- Columna Video (Izquierda en desktop: 360x640 / 260x462 en celular) -->
+      <div class="w-full lg:w-auto flex justify-center order-2 lg:order-1">
+        <div class="w-[260px] h-[462px] md:w-[360px] md:h-[640px] shrink-0 border-[1.5px] border-dashed border-[#B7C4D1] rounded-[20px] md:rounded-[24px] bg-[var(--color-superficie)] p-6 md:p-8 flex flex-col items-center justify-center text-center box-border relative overflow-hidden shadow-xs">
+          <video
+            id="video-bloqueo"
+            muted
+            playsinline
+            loop
+            preload="none"
+            poster="/video/bloqueo-reasignacion-poster.svg"
+            class="w-full h-full object-contain rounded-xl block"
+          >
+            <source src="/video/bloqueo-reasignacion.mp4" type="video/mp4" />
+          </video>
+        </div>
+      </div>
+
+      <!-- Columna Texto (Derecha en desktop: max-width 560px) -->
+      <div class="flex-grow flex flex-col max-w-full lg:max-w-[560px] order-1 lg:order-2">
+        <h2 class="m-0 text-[26px] md:text-[36px] leading-[1.15] md:leading-[1.1] font-bold text-[var(--color-tinta)] [font-stretch:87.5%]">
+          Con Cuadrape, la 5 no se vuelve a alquilar sin dejar rastro.
+        </h2>
+
+        <p class="mt-4 md:mt-6 m-0 text-[17px] md:text-[18px] leading-[1.6] text-[var(--color-tinta-suave)]">
+          Mientras tenga tiempo pagado, el sistema no acepta un nuevo ingreso. Si el huésped se fue antes, el recepcionista marca Liberar antes de tiempo y escribe el motivo. Tú lo ves.
+        </p>
+
+        <!-- Cuadro Marcador de Acento Dorado -->
+        <div class="mt-6 md:mt-8 flex gap-3 md:gap-3.5 items-start">
+          <div class="w-[10px] h-[10px] md:w-[12px] md:h-[12px] bg-[var(--color-acento)] shrink-0 mt-[8px] md:mt-[9px]"></div>
+          <p class="m-0 text-[18px] md:text-[20px] leading-[1.45] font-semibold text-[var(--color-tinta)]">
+            Todo queda a nombre de quien lo hizo, también cuando lo hizo bien.
+          </p>
+        </div>
+      </div>
+    </div>
+  </Contenedor>
+</Seccion>
+
+<script>
+  const video = document.getElementById('video-bloqueo') as HTMLVideoElement | null;
+  if (video && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            video.play().catch(() => {});
+          } else {
+            video.pause();
+          }
+        });
+      },
+      { threshold: 0.5 }
+    );
+    observer.observe(video);
+  }
+</script>

@@ -1,0 +1,19 @@
+---
+interface Props {
+  id?: string;
+  class?: string;
+  fondo?: 'blanco' | 'superficie' | 'marca';
+}
+
+const { id, class: className = '', fondo = 'blanco' } = Astro.props;
+
+const fondoClases = {
+  blanco: 'bg-[var(--color-fondo)] text-[var(--color-tinta)]',
+  superficie: 'bg-[var(--color-superficie)] text-[var(--color-tinta)]',
+  marca: 'bg-[var(--color-marca)] text-white',
+};
+---
+
+<section id={id} class:list={['py-12 md:py-20', fondoClases[fondo], className]}>
+  <slot />
+</section>
